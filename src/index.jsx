@@ -8,7 +8,6 @@ import LIKE from './pages/like'
 import Dislike from './pages/dislike'
 import Content from './pages/Content'
 import Hashtag from './pages/Hashtag'
-import Goal from './pages/Goal'
 import ThankYou from './pages/ThankYou'
 
 function index() {
@@ -23,7 +22,6 @@ function index() {
       <Dislike />
       <Content />
       <Hashtag />
-      <Goal />
       <ThankYou />
     </>
   )
