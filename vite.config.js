@@ -1,7 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react'; // ถ้าใช้ React
+import tailwindcss from '@tailwindcss/vite'; // <--- Import Tailwind Plugin
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  plugins: [
+    react(), // ถ้าใช้ React
+    tailwindcss(), // <--- เพิ่ม Plugin นี้
+  ],
+});
