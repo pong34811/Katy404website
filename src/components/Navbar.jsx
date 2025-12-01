@@ -28,7 +28,7 @@ function Navbar() {
             className="text-2xl font-bold tracking-tighter group z-50 relative"
           >
             <span className="text-white group-hover:text-[#aebcdb] transition-colors duration-300">
-              KT
+              KATY
             </span>
             <span className="text-[#aebcdb] group-hover:text-white transition-colors duration-300">
               404

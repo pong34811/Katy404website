@@ -24,7 +24,7 @@ function Home() {
           <div className="absolute -inset-1 bg-gradient-to-r from-[#aebcdb] to-slate-500 rounded-full blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
           <img
             src={characterImg}
-            alt="KT404 Character"
+            alt="Katy404 Character"
             className="relative w-60 h-60 md:w-80 md:h-80 object-cover rounded-full border-4 border-slate-800/50 shadow-2xl transform transition duration-500 hover:scale-105 hover:rotate-2"
           />
         </div>
@@ -36,7 +36,7 @@ function Home() {
           </span>
           {/* Gradient matching Silver/Blue Hair */}
           <span className="text-5xl md:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-[#aebcdb] to-slate-200 animate-gradient-x drop-shadow-lg">
-            KT404
+            Katy404
           </span>
         </h1>
 

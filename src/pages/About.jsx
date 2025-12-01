@@ -51,7 +51,7 @@ function About() {
                       Name
                     </p>
                     <p className="text-xl font-bold text-white">
-                      เคที่404 (KT404)
+                      เคที้404 (Katy404)
                     </p>
                   </div>
                 </div>

@@ -102,12 +102,12 @@ function ThankYou() {
                     Loading
                   </h3>
                   <a
-                    href="https://twitter.com/kt404"
+                    href="https://x.com/KATY404_"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-lg text-slate-300 hover:text-pink-300 transition-colors"
                   >
-                    @kt404
+                    @katy404
                   </a>
                 </div>
               </div>

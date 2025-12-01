@@ -57,7 +57,7 @@ function Hashtag() {
 
                 <div className="bg-black/30 rounded-2xl p-4 border border-cyan-500/20">
                   <p className="text-3xl font-bold text-cyan-400 font-mono">
-                    #kt404
+                    #katy404
                   </p>
                 </div>
               </div>
@@ -130,7 +130,7 @@ function Hashtag() {
 
                 <div className="bg-black/30 rounded-2xl p-4 border border-purple-500/20">
                   <p className="text-3xl font-bold text-purple-400 font-mono">
-                    #kt404art
+                    #katy404art
                   </p>
                 </div>
               </div>
@@ -166,7 +166,7 @@ function Hashtag() {
 
                 <div className="bg-black/30 rounded-2xl p-4 border border-red-500/20">
                   <p className="text-3xl font-bold text-red-400 font-mono">
-                    #kt404live
+                    #katy404live
                   </p>
                 </div>
               </div>

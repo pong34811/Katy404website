@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* X (Twitter) */}
           <a
-            href="https://x.com/KT404VTUBER"
+            href="https://x.com/KATY404_"
             target="_blank"
             rel="noopener noreferrer"
             className="group"
