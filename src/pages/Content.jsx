@@ -1,132 +1,197 @@
 import React from "react";
+import { motion } from "framer-motion";
+import {
+  Play,
+  Tv,
+  Video,
+  Send,
+  Calendar,
+  Sparkles,
+  Youtube,
+  Twitter,
+} from "lucide-react";
 
 function Content() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
+  const contentTypes = [
+    {
+      title: "ไลฟ์สตรีม",
+      schedule: "สัปดาห์ละ 2-3 ครั้ง",
+      icon: Tv,
+      label: "LIVE",
+      color: "bg-red-500",
+      accent: "text-red-400",
+      glow: "shadow-red-500/20",
+    },
+    {
+      title: "ทำคลิปวิดีโอ",
+      schedule: "สัปดาห์ละ 3 คลิป",
+      icon: Play,
+      label: "VIDEO",
+      color: "bg-red-600",
+      accent: "text-red-400",
+      glow: "shadow-red-600/20",
+    },
+    {
+      title: "คลิปสั้น",
+      schedule: "สัปดาห์ละ 3 คลิป",
+      icon: Video,
+      label: "SHORTS",
+      color: "bg-rose-600",
+      accent: "text-rose-400",
+      glow: "shadow-rose-600/20",
+    },
+    {
+      title: "โพสโซเชียล",
+      schedule: "2 ต่อสัปดาห์",
+      icon: Twitter,
+      label: "SOCIAL",
+      color: "bg-blue-500",
+      accent: "text-blue-400",
+      glow: "shadow-blue-500/20",
+    },
+  ];
+
   return (
     <section
       id="content"
-      className="min-h-screen bg-[#09090b] text-white py-20 relative overflow-hidden flex items-center"
+      className="min-h-screen bg-background text-white py-24 relative overflow-hidden flex items-center"
     >
-      {/* Background Gradients */}
+      {/* Dynamic Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-        <div className="absolute top-[10%] left-[-10%] w-[40%] h-[40%] bg-purple-500/30 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] bg-pink-500/30 rounded-full blur-[120px]"></div>
+        <motion.div
+          animate={{ scale: [1, 1.2, 1], rotate: [0, 45, 0] }}
+          transition={{ duration: 15, repeat: Infinity }}
+          className="absolute top-[10%] left-[-5%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px]"
+        ></motion.div>
+        <motion.div
+          animate={{ scale: [1.2, 1, 1.2], rotate: [0, -45, 0] }}
+          transition={{ duration: 12, repeat: Infinity }}
+          className="absolute bottom-[10%] right-[-5%] w-[40%] h-[40%] bg-accent/20 rounded-full blur-[120px]"
+        ></motion.div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-black mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-400 to-pink-400">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-6xl md:text-8xl font-black mb-4 tracking-tighter">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-primary to-pink-400 animate-gradient-x">
               Content
             </span>
           </h2>
+          <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto rounded-full"></div>
+        </motion.div>
 
-          <div className="w-24 h-1 bg-pink-400 mx-auto rounded-full opacity-50"></div>
-        </div>
-
-        <div className="max-w-6xl mx-auto">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-6xl mx-auto"
+        >
           {/* Content Types Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Live Stream */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all hover:transform hover:scale-105 duration-300">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-red-600 rounded-2xl mb-6 shadow-lg">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-3 h-3 bg-white rounded-full"></div>
-                    <span className="text-white font-black text-lg">LIVE</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {contentTypes.map((content, idx) => (
+              <motion.div
+                key={idx}
+                variants={itemVariants}
+                whileHover={{ y: -12, scale: 1.05 }}
+                className="glass-morphism rounded-[2.5rem] p-10 border-white/5 relative overflow-hidden group hover:border-white/20 transition-all duration-500 shadow-2xl"
+              >
+                <div
+                  className={cn(
+                    "absolute inset-0 bg-gradient-to-br from-white/5 opacity-0 group-hover:opacity-100 transition-opacity",
+                    content.accent.replace("text", "via")
+                  )}
+                ></div>
+
+                <div className="relative z-10 text-center">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className={cn(
+                      "inline-flex items-center justify-center w-24 h-24 rounded-3xl mb-8 shadow-2xl",
+                      content.color,
+                      content.glow
+                    )}
+                  >
+                    <content.icon
+                      size={44}
+                      className="text-white drop-shadow-lg"
+                    />
+                    {content.label === "LIVE" && (
+                      <span className="absolute -top-2 -right-2 flex h-6 w-6">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-6 w-6 bg-white"></span>
+                      </span>
+                    )}
+                  </motion.div>
+
+                  <h3 className="text-2xl font-black text-white mb-3 tracking-tight group-hover:text-primary transition-colors">
+                    {content.title}
+                  </h3>
+                  <div
+                    className={cn(
+                      "font-black uppercase tracking-widest text-sm",
+                      content.accent
+                    )}
+                  >
+                    {content.schedule}
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-pink-400 mb-2">
-                  ไลฟ์สตรีม
-                </h3>
-                <p className="text-pink-400 font-semibold">
-                  สัปดาห์ละ 2-3 ครั้ง
-                </p>
-              </div>
-            </div>
-
-            {/* Video Content */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all hover:transform hover:scale-105 duration-300">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-red-600 rounded-2xl mb-6 shadow-lg">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="white"
-                  >
-                    <path d="M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z" />
-                  </svg>
+                {/* Secondary Tag */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] font-black uppercase tracking-[0.4em] opacity-20 transition-opacity group-hover:opacity-40">
+                  {content.label}
                 </div>
-
-                <h3 className="text-lg font-bold text-pink-400 mb-2">
-                  ทำคลิปวิดีโอ
-                </h3>
-                <p className="text-pink-400 font-semibold">สัปดาห์ละ 3 คลิป</p>
-              </div>
-            </div>
-
-            {/* Shorts */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all hover:transform hover:scale-105 duration-300">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-red-600 rounded-2xl mb-6 shadow-lg">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="white"
-                  >
-                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
-                  </svg>
-                </div>
-
-                <h3 className="text-lg font-bold text-pink-400 mb-2">
-                  คลิปสั้น
-                </h3>
-                <p className="text-pink-400 font-semibold">สัปดาห์ละ 3 คลิป</p>
-              </div>
-            </div>
-
-            {/* Social Posts */}
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all hover:transform hover:scale-105 duration-300">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-black rounded-2xl mb-6 shadow-lg">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="white"
-                  >
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                  </svg>
-                </div>
-
-                <h3 className="text-lg font-bold text-pink-400 mb-2">
-                  โพสโซเชียลมีเดีย
-                </h3>
-                <p className="text-pink-400 font-semibold">2 ต่อสัปดาห์</p>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
 
           {/* Bottom Info */}
-          <div className="mt-12 text-center">
-            <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-900/60 to-purple-800/60 border border-purple-500/30 rounded-full backdrop-blur-sm shadow-lg">
-              <span className="text-2xl">📅</span>
-              <p className="text-white font-semibold">
+          <motion.div variants={itemVariants} className="mt-20 text-center">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center gap-6 px-10 py-5 glass-morphism border-primary/30 rounded-[2rem] shadow-2xl relative group overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <Calendar size={32} className="text-primary relative z-10" />
+              <p className="text-white text-xl md:text-2xl font-black uppercase tracking-tight relative z-10">
                 Regular Content Schedule
               </p>
-              <span className="text-2xl">✨</span>
-            </div>
-          </div>
-        </div>
+              <Sparkles
+                size={32}
+                className="text-primary relative z-10 animate-pulse"
+              />
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 }
+
+const cn = (...classes) => classes.filter(Boolean).join(" ");
 
 export default Content;

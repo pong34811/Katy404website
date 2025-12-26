@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 function ScrollToNext() {
   const [currentSection, setCurrentSection] = useState(0);
-  const [isAtBottom, setIsAtBottom] = useState(false);
+  const [show, setShow] = useState(true);
 
-  // List of section IDs in order
   const sections = [
     "home",
     "about",
@@ -16,19 +17,21 @@ function ScrollToNext() {
     "content",
     "hashtag",
     "thankyou",
-    "contact",
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      // Check if at bottom of page
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
       const isBottom =
         window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 100;
-      setIsAtBottom(isBottom);
+        document.documentElement.scrollHeight - 50;
 
-      // Find current section
-      const scrollPosition = window.scrollY + window.innerHeight / 2;
+      if (isBottom) {
+        setShow(false);
+        return;
+      }
+
+      setShow(true);
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const element = document.getElementById(sections[i]);
@@ -40,7 +43,7 @@ function ScrollToNext() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -54,32 +57,34 @@ function ScrollToNext() {
     }
   };
 
-  // Don't show button if at the last section
-  if (isAtBottom || currentSection >= sections.length - 1) {
-    return null;
-  }
-
   return (
-    <button
-      onClick={scrollToNext}
-      className="fixed bottom-8 right-8 z-50 w-14 h-14 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 flex items-center justify-center group"
-      aria-label="Scroll to next section"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="group-hover:translate-y-1 transition-transform"
-      >
-        <path d="m6 9 6 6 6-6" />
-      </svg>
-    </button>
+    <AnimatePresence>
+      {show && currentSection < sections.length - 1 && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0.5, y: 20 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.5, y: 20 }}
+          whileHover={{
+            scale: 1.1,
+            backgroundColor: "rgba(174, 188, 219, 0.2)",
+          }}
+          whileTap={{ scale: 0.9 }}
+          onClick={scrollToNext}
+          className="fixed bottom-10 right-10 z-50 w-16 h-16 glass-morphism border-primary/20 text-primary rounded-2xl shadow-2xl flex items-center justify-center group"
+          aria-label="Scroll to next section"
+        >
+          <motion.div
+            animate={{ y: [0, 5, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ChevronDown size={32} strokeWidth={2.5} />
+          </motion.div>
+
+          {/* Ripple Effect */}
+          <span className="absolute inset-0 rounded-2xl border border-primary/50 animate-ping opacity-20 group-hover:hidden"></span>
+        </motion.button>
+      )}
+    </AnimatePresence>
   );
 }
 

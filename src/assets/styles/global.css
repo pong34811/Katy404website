@@ -1,15 +1,47 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #aebcdb;
+  --color-secondary: #fbbf24;
+  --color-accent: #6366f1;
+  --color-background: #030303;
+  --color-surface: #0f172a;
+}
+
 body {
   margin: 0;
-  font-family: 'Noto Sans Thai', sans-serif;
-  background-color: #09090b;
-  color: white;
+  font-family: "Outfit", "Noto Sans Thai", sans-serif;
+  background-color: var(--color-background);
+  color: #f8fafc;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #030303;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .animate-shimmer {
@@ -17,9 +49,15 @@ body {
 }
 
 @keyframes gradient-x {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .animate-gradient-x {
@@ -27,3 +65,13 @@ body {
   animation: gradient-x 3s ease infinite;
 }
 
+.glass-morphism {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glow-shadow-primary {
+  box-shadow: 0 0 20px rgba(174, 188, 219, 0.15);
+}

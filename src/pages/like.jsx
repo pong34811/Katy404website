@@ -1,203 +1,261 @@
 import React from "react";
+import { motion } from "framer-motion";
+import {
+  Gamepad2,
+  Shirt,
+  Utensils,
+  Heart,
+  Swords,
+  Smartphone,
+  Ghost,
+  Music,
+} from "lucide-react";
 
 function LIKE() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: "easeOut" },
+    },
+  };
+
+  const gameItems = [
+    { emoji: "🎮", name: "ROV", icon: Swords },
+    { emoji: "⚔️", name: "LOL", icon: Ghost },
+    { emoji: "📱", name: "Wild Rift", icon: Smartphone },
+    { emoji: "🐴", name: "เกมม้า", icon: StarIcon },
+  ];
+
   return (
     <section
       id="like"
-      className="min-h-screen bg-[#09090b] text-white py-20 relative overflow-hidden flex items-center"
+      className="min-h-screen bg-background text-white py-24 relative overflow-hidden flex items-center"
     >
-      {/* Background Elements */}
+      {/* Background Decor */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-        <div className="absolute top-[10%] left-[-10%] w-[40%] h-[40%] bg-pink-500/30 rounded-full blur-[120px]"></div>
-        <div className="absolute bottom-[10%] right-[-10%] w-[40%] h-[40%] bg-rose-500/30 rounded-full blur-[120px]"></div>
+        <div className="absolute top-[10%] left-[-10%] w-[50%] h-[50%] bg-pink-500/10 rounded-full blur-[140px]"></div>
+        <div className="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] bg-rose-500/10 rounded-full blur-[140px]"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-black mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-400 to-pink-400">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-6xl md:text-8xl font-black mb-4 tracking-tighter">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-500 to-pink-400 animate-gradient-x">
               LIKE
             </span>
           </h2>
-          <div className="w-24 h-1 bg-pink-400 mx-auto rounded-full opacity-50"></div>
-        </div>
+          <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-pink-500 to-transparent mx-auto rounded-full"></div>
+        </motion.div>
 
-        <div className="max-w-7xl mx-auto space-y-12">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-7xl mx-auto space-y-12"
+        >
           {/* Gaming Section */}
-          <div className="bg-gradient-to-br from-purple-500/10 to-blue-500/10 backdrop-blur-md border border-purple-500/20 rounded-3xl p-8 md:p-10 relative overflow-hidden group hover:border-purple-500/40 transition-all">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-purple-500/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
+          <motion.div
+            variants={itemVariants}
+            className="glass-morphism rounded-[3rem] p-10 md:p-14 relative overflow-hidden group border-white/5"
+          >
+            <div className="absolute top-0 right-0 w-80 h-80 bg-purple-500/10 rounded-full blur-[100px] -mr-40 -mt-40 group-hover:bg-purple-500/20 transition-all duration-700"></div>
 
             <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-purple-500/20 rounded-2xl">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-purple-300"
-                  >
-                    <line x1="6" x2="10" y1="12" y2="12" />
-                    <line x1="8" x2="8" y1="10" y2="14" />
-                    <line x1="15" x2="15.01" y1="13" y2="13" />
-                    <line x1="18" x2="18.01" y1="11" y2="11" />
-                    <rect width="20" height="12" x="2" y="6" rx="2" />
-                  </svg>
+              <div className="flex items-center gap-6 mb-12">
+                <div className="p-6 bg-purple-500/20 rounded-3xl text-purple-400 shadow-2xl shadow-purple-500/20 group-hover:scale-110 transition-transform">
+                  <Gamepad2 size={40} />
                 </div>
-                <h3 className="text-3xl font-bold text-pink-300">• เกม</h3>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 transition-all group/item">
-                  <div className="text-4xl mb-2 group-hover/item:scale-110 transition-transform">
-                    🎮
-                  </div>
-                  <p className="text-slate-300 font-medium">ROV</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 transition-all group/item">
-                  <div className="text-4xl mb-2 group-hover/item:scale-110 transition-transform">
-                    ⚔️
-                  </div>
-                  <p className="text-slate-300 font-medium">LOL</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 transition-all group/item">
-                  <div className="text-4xl mb-2 group-hover/item:scale-110 transition-transform">
-                    📱
-                  </div>
-                  <p className="text-slate-300 font-medium">Wild Rift</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 text-center hover:bg-white/10 transition-all group/item">
-                  <div className="text-4xl mb-2 group-hover/item:scale-110 transition-transform">
-                    🐴
-                  </div>
-                  <p className="text-slate-300 font-medium">เกมม้า</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Fashion Section */}
-          <div className="bg-gradient-to-br from-pink-500/10 to-purple-500/10 backdrop-blur-md border border-pink-500/20 rounded-3xl p-8 md:p-10 relative overflow-hidden group hover:border-pink-500/40 transition-all">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-pink-500/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
-
-            <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-pink-500/20 rounded-2xl">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-pink-300"
-                  >
-                    <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h-2a5 5 0 0 0-5-5h-1v1.27c.6.34 1 .99 1 1.73a2 2 0 0 1-2 2 2 2 0 0 1-2-2c0-.74.4-1.39 1-1.73V9h-1a5 5 0 0 0-5 5H3a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z" />
-                    <path d="M12 14v8" />
-                    <path d="M8 22h8" />
-                  </svg>
-                </div>
-                <h3 className="text-3xl font-bold text-pink-300">
-                  • ชอบการแต่งตัว, แฟชั่น
+                <h3 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter">
+                  • เกม
                 </h3>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all">
-                  <div className="flex items-center gap-4">
-                    <div className="text-5xl">👔</div>
-                    <div>
-                      <p className="text-lg font-semibold text-white mb-1">
-                        ใส่ชุดอะไรก็ได้
-                      </p>
-                      <p className="text-slate-400 text-sm">Versatile Style</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  { name: "ROV", emoji: "🎮", color: "from-blue-500/20" },
+                  { name: "LOL", emoji: "⚔️", color: "from-purple-500/20" },
+                  { name: "Wild Rift", emoji: "📱", color: "from-cyan-500/20" },
+                  { name: "เกมม้า", emoji: "🐴", color: "from-amber-500/20" },
+                ].map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ y: -10 }}
+                    className={cn(
+                      "glass-morphism bg-gradient-to-br to-transparent rounded-[2rem] p-8 text-center border-white/5 group/item cursor-default",
+                      item.color
+                    )}
+                  >
+                    <div className="text-6xl mb-4 group-hover/item:scale-125 transition-transform duration-500 drop-shadow-2xl">
+                      {item.emoji}
                     </div>
-                  </div>
-                </div>
-                <div className="bg-gradient-to-br from-pink-500/20 to-purple-500/20 backdrop-blur-sm border border-pink-500/30 rounded-2xl p-6 hover:border-pink-500/50 transition-all">
-                  <div className="flex items-center gap-4">
-                    <div className="text-5xl">🎸</div>
-                    <div>
-                      <p className="text-lg font-semibold text-white mb-1">
-                        แนว PUNK
-                      </p>
-                      <p className="text-pink-300 text-sm font-medium">
-                        Favorite Style ⭐
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                    <p className="text-xl font-black text-white uppercase tracking-widest">
+                      {item.name}
+                    </p>
+                  </motion.div>
+                ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Food Section */}
-          <div className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 backdrop-blur-md border border-amber-500/20 rounded-3xl p-8 md:p-10 relative overflow-hidden group hover:border-amber-500/40 transition-all">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-amber-500/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
+          {/* Fashion Section */}
+          <motion.div
+            variants={itemVariants}
+            className="glass-morphism rounded-[3rem] p-10 md:p-14 relative overflow-hidden group border-white/5"
+          >
+            <div className="absolute top-0 right-0 w-80 h-80 bg-pink-500/10 rounded-full blur-[100px] -mr-40 -mt-40 group-hover:bg-pink-500/20 transition-all duration-700"></div>
 
             <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-amber-500/20 rounded-2xl">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="32"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-amber-300"
-                  >
-                    <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                    <line x1="6" x2="6" y1="1" y2="4" />
-                    <line x1="10" x2="10" y1="1" y2="4" />
-                    <line x1="14" x2="14" y1="1" y2="4" />
-                  </svg>
+              <div className="flex items-center gap-6 mb-12">
+                <div className="p-6 bg-pink-500/20 rounded-3xl text-pink-400 shadow-2xl shadow-pink-500/20 group-hover:scale-110 transition-transform">
+                  <Shirt size={40} />
                 </div>
-                <h3 className="text-3xl font-bold text-pink-300">• ของกิน</h3>
+                <h3 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter">
+                  • ความชอบ
+                </h3>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all group/item">
-                  <div className="text-5xl mb-3 group-hover/item:scale-110 transition-transform">
-                    🍗
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <motion.div
+                  whileHover={{ x: 10 }}
+                  className="glass-morphism bg-white/5 rounded-[2.5rem] p-10 border-white/5 flex items-center gap-8 group/card"
+                >
+                  <div className="text-7xl group-hover/card:scale-110 transition-transform">
+                    👔
                   </div>
-                  <p className="text-lg font-semibold text-white">ไก่ทอด</p>
-                  <p className="text-slate-400 text-sm mt-1">Fried Chicken</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all group/item">
-                  <div className="text-5xl mb-3 group-hover/item:scale-110 transition-transform">
-                    🍚
+                  <div>
+                    <p className="text-2xl font-black text-white mb-2 uppercase tracking-tight">
+                      แต่งตัวได้ทุกสไตล์
+                    </p>
+                    <p className="text-slate-400 text-lg font-medium tracking-wide">
+                      Versatile Fashion Expert
+                    </p>
                   </div>
-                  <p className="text-lg font-semibold text-white">ข้าวมันไก่</p>
-                  <p className="text-slate-400 text-sm mt-1">Chicken Rice</p>
-                </div>
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all group/item">
-                  <div className="text-5xl mb-3 group-hover/item:scale-110 transition-transform">
-                    🍖
+                </motion.div>
+
+                <motion.div
+                  whileHover={{ x: 10 }}
+                  className="bg-gradient-to-r from-pink-500/20 to-purple-500/10 glass-morphism rounded-[2.5rem] p-10 border-pink-500/30 flex items-center gap-8 group/card relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="text-7xl group-hover/card:rotate-12 transition-transform relative z-10">
+                    🎸
                   </div>
-                  <p className="text-lg font-semibold text-white">เครื่องไก่</p>
-                  <p className="text-slate-400 text-sm mt-1">Chicken Innards</p>
-                </div>
+                  <div className="relative z-10">
+                    <p className="text-2xl font-black text-white mb-2 uppercase tracking-tight">
+                      ความชอบแนว PUNK
+                    </p>
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-pink-500 text-white rounded-full text-xs font-black uppercase tracking-widest shadow-lg shadow-pink-500/50">
+                      <Star size={12} fill="white" />
+                      Favorite Style
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+
+          {/* Food Section */}
+          <motion.div
+            variants={itemVariants}
+            className="glass-morphism rounded-[3rem] p-10 md:p-14 relative overflow-hidden group border-white/5"
+          >
+            <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-[100px] -mr-40 -mt-40 group-hover:bg-amber-500/20 transition-all duration-700"></div>
+
+            <div className="relative z-10">
+              <div className="flex items-center gap-6 mb-12">
+                <div className="p-6 bg-amber-500/20 rounded-3xl text-amber-400 shadow-2xl shadow-amber-500/20 group-hover:scale-110 transition-transform">
+                  <Utensils size={40} />
+                </div>
+                <h3 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter">
+                  • ของกิน
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {[
+                  {
+                    name: "ไก่ทอด",
+                    emoji: "🍗",
+                    desc: "Fried Chicken",
+                    color: "from-amber-500/20",
+                  },
+                  {
+                    name: "ข้าวมันไก่",
+                    emoji: "🍚",
+                    desc: "Chicken Rice",
+                    color: "from-slate-200/5",
+                  },
+                  {
+                    name: "เครื่องไก่",
+                    emoji: "🍖",
+                    desc: "Chicken Innards",
+                    color: "from-orange-500/20",
+                  },
+                ].map((food, idx) => (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ scale: 1.05 }}
+                    className={cn(
+                      "glass-morphism bg-gradient-to-br to-transparent rounded-[2.5rem] p-10 text-center border-white/5 group/food",
+                      food.color
+                    )}
+                  >
+                    <div className="text-8xl mb-6 group-hover/food:rotate-12 transition-transform duration-500">
+                      {food.emoji}
+                    </div>
+                    <p className="text-2xl font-black text-white mb-2">
+                      {food.name}
+                    </p>
+                    <p className="text-slate-400 font-bold uppercase tracking-[0.2em] text-sm">
+                      {food.desc}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
 }
+
+const StarIcon = (props) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+  </svg>
+);
+
+const Star = StarIcon;
+
+const cn = (...classes) => classes.filter(Boolean).join(" ");
 
 export default LIKE;
