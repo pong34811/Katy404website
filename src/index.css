@@ -1,0 +1,30 @@
+:root {
+  --char-lavender: #d1c4e9;
+  --char-yellow: #fdd835;
+  --char-dark: #0a0a0c;
+  --char-accent: #9575cd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Mitr', sans-serif;
+  background-color: var(--char-dark);
+  color: #e0e0e0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.cyber-font {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.bg-grid {
+  background-image: radial-gradient(var(--char-lavender) 0.5px, transparent 0.5px);
+  background-size: 40px 40px;
+  opacity: 0.15;
+}

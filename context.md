@@ -1,36 +1,46 @@
-# Context: Katy404 Website
+# Context: Katy404 Website — Vite + React
 
-## เว็บไซต์ปัจจุบัน
+## Project Structure
 
-เว็บไซต์ใน `index.html` เป็นหน้าแนะนำตัว VTuber แบบหน้าเดียวของ `Katy404` ใช้ภาษาไทยเป็นหลัก และมีโทนภาพแบบ digital/cyber ที่ยังดูน่ารัก ชิล และเป็นกันเอง
+```
+katy404/
+├── public/
+│   └── Gemini_Generated_Image_fojbo3fojbo3fojb.png
+├── src/
+│   ├── components/
+│   │   ├── Navbar/             # Navbar.jsx + Navbar.module.css
+│   │   ├── Hero/               # Hero.jsx + Hero.module.css
+│   │   └── ConnectFooter/      # ConnectFooter.jsx + ConnectFooter.module.css
+│   ├── hooks/
+│   │   └── useParticleEffect.js
+│   ├── App.jsx
+│   ├── index.css               # CSS variables, global, fonts
+│   └── main.jsx
+├── index.html
+├── package.json
+├── vite.config.js
+└── vercel.json
+```
 
-โครงสร้างหลักตอนนี้:
+## Stack
 
-- Navbar: โลโก้ `KATY404`, เมนู `Home`, `Connect`
-- Hero: ชื่อ `KATY404`, คำโปรย `"ความสำเร็จ เริ่มจากการวางแผน"`, ข้อความแนะนำตัวสั้นๆ
-- Character visual: รูปตัวละคร `Gemini_Generated_Image_fojbo3fojbo3fojb.png`
-- Floating labels: `100% MALE`, `CHILL_ENTITY`
-- Connect footer: Facebook, YouTube, Discord, TikTok
+- **Framework**: React 19 + Vite 8
+- **Styling**: CSS Modules (CSS custom properties for theming)
+- **Animation**: Framer Motion
+- **Icons**: Font Awesome 6 (CDN)
+- **Fonts**: Mitr (TH) + Orbitron (EN) via Google Fonts
 
-## สไตล์เว็บ
+## Commands
 
-- แนวเว็บ: VTuber profile / digital portfolio
-- สีหลัก: ดำเข้ม, ม่วงลาเวนเดอร์, เหลืองทอง
-- ฟอนต์หลัก: `Mitr`
-- ฟอนต์ตกแต่ง: `Orbitron`
-- เอฟเฟกต์: glitch text, floating character, mouse particle, glass card, grid background
-- ภาพรวมอารมณ์: cyber, cute, chill, friendly
+- `npm run dev` — start dev server
+- `npm run build` — production build
+- `npm run preview` — preview production build
 
-## ข้อมูลตัวละคร
+## Design Decisions
 
-- ชื่อ: KT404 (เค-ที่)
-- ชื่อช่อง: Katy404
-- เพศ: ชาย (Femboy)
-- อายุ: 23 ปี
-- ตัวตน: นักศึกษาชายที่หลายคนเข้าใจผิดว่าเป็นผู้หญิง เพราะหน้าตาและรูปร่างน่ารัก
-- บุคลิก: รักสงบ ชอบใช้ชีวิตแบบชิลๆ
-- คติประจำใจ: "ความสำเร็จ เริ่มจากการวางแผน"
-
-## แนวทางเวลาเพิ่มเนื้อหาในเว็บ
-
-ควรรักษาโทน cyber/cute/chill เดิมไว้ และเพิ่มข้อมูลแบบกระชับ โดยไม่ทำให้หน้าเว็บดูเป็นทางการเกินไป
+- ใช้ CSS Modules แทน Tailwind (ตามที่ user เลือก)
+- Framer Motion แทนที่ CSS animations บางส่วน (float, glitch)
+- Particle effect เก็บเป็น custom hook
+- Component structure แยกตาม section (Navbar, Hero, ConnectFooter)
+- สีหลัก: ดำเข้ม (#0a0a0c), ม่วงลาเวนเดอร์ (#d1c4e9), เหลืองทอง (#fdd835)
+- ฟอนต์หลัก: Mitr, ฟอนต์ตกแต่ง: Orbitron
