@@ -12,11 +12,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(10, 10, 12, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 1rem 2rem;
   border-radius: 1rem;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(12px);
 }
 
 .logo {
