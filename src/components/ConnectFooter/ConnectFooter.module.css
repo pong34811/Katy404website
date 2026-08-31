@@ -1,0 +1,106 @@
+.footer {
+  padding: 6rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+}
+
+.container {
+  max-width: 56rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 1.5rem;
+}
+
+.heading {
+  font-size: 2.25rem;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.socialCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.socialCard:hover {
+  transform: translateY(-2px);
+}
+
+.socialCard.facebook:hover {
+  background: rgba(209, 196, 233, 0.1);
+}
+
+.socialCard.youtube:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.socialCard.discord:hover {
+  background: rgba(88, 101, 242, 0.1);
+}
+
+.socialCard.tiktok:hover {
+  background: rgba(236, 72, 153, 0.1);
+}
+
+.icon {
+  font-size: 1.875rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 0.75rem;
+  transition: all 0.2s;
+}
+
+.socialCard:hover .icon {
+  transform: scale(1.1);
+}
+
+.facebook:hover .icon {
+  color: var(--char-lavender);
+}
+
+.youtube:hover .icon {
+  color: #ef4444;
+}
+
+.discord:hover .icon {
+  color: #5865f2;
+}
+
+.tiktok:hover .icon {
+  color: #ec4899;
+}
+
+.label {
+  font-size: 0.625rem;
+  font-family: 'Orbitron', sans-serif;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.system {
+  color: #64748b;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+}
