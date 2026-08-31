@@ -1,7 +1,6 @@
 import styles from './ConnectFooter.module.css'
 
 const socials = [
-  { name: 'FACEBOOK', icon: 'fab fa-facebook', href: '#', hoverClass: 'facebook' },
   { name: 'YOUTUBE', icon: 'fab fa-youtube', href: '#', hoverClass: 'youtube' },
   { name: 'DISCORD', icon: 'fab fa-discord', href: '#', hoverClass: 'discord' },
   { name: 'TIKTOK', icon: 'fab fa-tiktok', href: '#', hoverClass: 'tiktok' },

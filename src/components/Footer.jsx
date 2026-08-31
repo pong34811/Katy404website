@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Youtube, Twitter, Facebook, Heart } from "lucide-react";
+import { Youtube, Twitter, Heart } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -35,12 +35,6 @@ export default function Footer() {
       ),
       color: "hover:bg-black hover:shadow-cyan-500/20",
       label: "TikTok",
-    },
-    {
-      href: "https://www.facebook.com/profile.php?id=61584119863160",
-      icon: Facebook,
-      color: "hover:bg-blue-600 hover:shadow-blue-500/20",
-      label: "Facebook",
     },
   ];
 

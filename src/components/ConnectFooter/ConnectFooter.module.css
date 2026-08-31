@@ -49,10 +49,6 @@
   transform: translateY(-2px);
 }
 
-.socialCard.facebook:hover {
-  background: rgba(209, 196, 233, 0.1);
-}
-
 .socialCard.youtube:hover {
   background: rgba(239, 68, 68, 0.1);
 }
@@ -74,10 +70,6 @@
 
 .socialCard:hover .icon {
   transform: scale(1.1);
-}
-
-.facebook:hover .icon {
-  color: var(--char-lavender);
 }
 
 .youtube:hover .icon {
