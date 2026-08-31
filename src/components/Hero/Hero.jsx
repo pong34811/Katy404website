@@ -86,9 +86,11 @@ export default function Hero() {
 
             <div className={styles.imageWrap}>
               <img
-                src="/Gemini_Generated_Image_fojbo3fojbo3fojb.png"
+                src="/Gemini_Generated_Image_fojbo3fojbo3fojb.webp"
                 alt="Katy404 Character"
                 className={styles.image}
+                loading="eager"
+                fetchPriority="high"
                 onError={(e) => {
                   e.currentTarget.src = 'https://placehold.co/600x800/0f0f13/b4a7d6?text=KATY404'
                 }}
