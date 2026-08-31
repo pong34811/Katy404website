@@ -1,8 +1,11 @@
 :root {
-  --char-lavender: #d1c4e9;
-  --char-yellow: #fdd835;
-  --char-dark: #0a0a0c;
-  --char-accent: #9575cd;
+  --char-dark: #050508;
+  --char-lavender: #c8b8e8;
+  --char-gold: #d4a843;
+  --char-pink: #e8879a;
+  --char-silver: #b8c0d0;
+  --char-dim: rgba(255, 255, 255, 0.08);
+  --char-glow: rgba(200, 184, 232, 0.15);
 }
 
 * {
@@ -26,5 +29,15 @@ body {
 .bg-grid {
   background-image: radial-gradient(var(--char-lavender) 0.5px, transparent 0.5px);
   background-size: 40px 40px;
-  opacity: 0.15;
+  opacity: 0.1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
 }

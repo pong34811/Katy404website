@@ -1,8 +1,20 @@
 .footer {
   padding: 6rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(0, 0, 0, 0.6);
+  border-top: 1px solid rgba(200, 184, 232, 0.1);
+  background: rgba(5, 5, 8, 0.7);
   backdrop-filter: blur(20px);
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--char-lavender), transparent);
+  opacity: 0.3;
 }
 
 .container {
@@ -18,6 +30,7 @@
   font-weight: 700;
   color: white;
   margin-bottom: 3rem;
+  text-shadow: 0 0 30px rgba(200, 184, 232, 0.2);
 }
 
 .grid {
@@ -32,62 +45,77 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.75rem 2.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(200, 184, 232, 0.12);
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
+  min-width: 140px;
 }
 
 .socialCard:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  background: rgba(200, 184, 232, 0.08);
+  border-color: rgba(200, 184, 232, 0.25);
+  box-shadow: 0 12px 40px rgba(200, 184, 232, 0.1);
 }
 
 .socialCard.youtube:hover {
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 12px 40px rgba(239, 68, 68, 0.15);
 }
 
 .socialCard.discord:hover {
-  background: rgba(88, 101, 242, 0.1);
+  background: rgba(88, 101, 242, 0.12);
+  border-color: rgba(88, 101, 242, 0.3);
+  box-shadow: 0 12px 40px rgba(88, 101, 242, 0.15);
 }
 
 .socialCard.tiktok:hover {
-  background: rgba(236, 72, 153, 0.1);
+  background: rgba(236, 72, 153, 0.12);
+  border-color: rgba(236, 72, 153, 0.3);
+  box-shadow: 0 12px 40px rgba(236, 72, 153, 0.15);
 }
 
 .icon {
-  font-size: 1.875rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 2rem;
+  color: var(--char-silver);
   margin-bottom: 0.75rem;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
 }
 
 .socialCard:hover .icon {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
 .youtube:hover .icon {
   color: #ef4444;
+  text-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
 }
 
 .discord:hover .icon {
   color: #5865f2;
+  text-shadow: 0 0 20px rgba(88, 101, 242, 0.5);
 }
 
 .tiktok:hover .icon {
   color: #ec4899;
+  text-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
 }
 
 .label {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-family: 'Orbitron', sans-serif;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(184, 192, 208, 0.6);
+  letter-spacing: 0.08em;
 }
 
 .system {
-  color: #64748b;
+  color: #4a5568;
   font-size: 0.625rem;
   text-transform: uppercase;
   letter-spacing: 0.4em;
+  margin-top: 2rem;
 }
